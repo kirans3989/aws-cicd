@@ -12,7 +12,7 @@ phases:
       - echo "Build started on $(date)"
       - ls -l # Check the presence of index.html
       - sudo mkdir -p /var/www/html
-      - sudo cp index.html /var/www/html
+      - sudo cp Repo-1/index.html /var/www/html
 
   post_build:
     commands:
