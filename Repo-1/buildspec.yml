@@ -10,11 +10,15 @@ phases:
   build:
     commands:
       - echo "Build started on $(date)"
-      - cp Repo-1/index.html /var/www/html
+      - ls -l # Check the presence of index.html
+      - sudo mkdir -p /var/www/html
+      - sudo cp index.html /var/www/html
 
   post_build:
     commands:
       - echo "Configuring NGINX"
+      - sudo systemctl start nginx
+      - curl http://localhost # Verify the page is served correctly
 
 artifacts:
   files:
