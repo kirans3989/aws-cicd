@@ -17,7 +17,8 @@ phases:
   post_build:
     commands:
       - echo "Configuring NGINX"
-      - sudo systemctl start nginx
+      - sudo nginx -g 'daemon off;' & # Start NGINX in the foreground as a background process
+      - sleep 5 # Wait for NGINX to start
       - curl http://localhost # Verify the page is served correctly
 
 artifacts:
